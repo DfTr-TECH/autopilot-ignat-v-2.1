@@ -1,3 +1,4 @@
+#подключение библиотек и модулей
 import cv2 
 import numpy as np
 import RPi.GPIO as GPIO
@@ -33,6 +34,7 @@ low_red = np.array((161, 29, 0), np.uint8)
     #границы белого цвета в RGB
 high_white = np.array((250, 250, 250), np.uint8)
 low_white = np.array((127, 139, 141), np.uint8)
+#воспроизводимая фраза-приветствие
 playsound('voice/privet.mp3')
 while True:
   #начало записи видеопотока и флаг его состояния(ret)
@@ -76,6 +78,7 @@ while True:
     if x_red > 330 and x_red < 380:
         GPIO.output(22, 0)
         GPIO.output(23, 0)
+	#фраза-предупреждение об остановке перед барьером
         playsound('voice/crasny cvet.mp3')
         break
        #удержание белой линии в центре кадра: если линия справа, то поднять первый флаг и опустить второй.
@@ -92,6 +95,8 @@ while True:
     
     if cv2.waitKey(5) == ord('q'): #выход из главного цикла после нажатия кнопки "Q"
 		break
+#фраза-прощание
+playsound(voice/vixod.mp3)
 #освобождение канала данных камеры и закрытие окна видеопотока
 cap.release()
 cv2.destroyAllWindows()
