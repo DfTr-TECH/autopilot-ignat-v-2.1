@@ -80,6 +80,7 @@ while True:
         flag2 = 1
     if cv2.waitKey(5) == ord('q'): #выход из главного цикла после нажатия кнопки "Q"
         break
+playsound('voice/vixod.mp3')
 #освобождение канала данных камеры и закрытие окна видеопотока
 cap.release()
 cv2.destroyAllWindows()
